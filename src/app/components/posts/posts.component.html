@@ -1,0 +1,55 @@
+<div class="main-content">
+  <div class="user-details">
+    <p><strong>Name<img src="assets/img/pen.svg" class="edit" (click)="edit()"  ></strong><br>
+      <span [contentEditable]="name_">
+        {{name}}
+      </span>
+    </p>
+    <p><strong>Email<img src="assets/img/pen.svg" class="edit" (click)="edit()"  ></strong><br>
+      <span [contentEditable]="name_">
+        {{email}}
+      </span>
+    </p>
+    <p><strong>Number<img src="assets/img/pen.svg" class="edit" (click)="edit()" ></strong><br>
+      <span [contentEditable]="name_">
+        {{telNumber}}
+      </span>
+    </p>
+      <button class="btn btn-success" (click)="updateProfile()" *ngIf="name_"  >Update</button>
+
+    <a routerLink="" s="text-danger" (click)="deleteUser(email)" >
+      <strong>Delete {{name}}</strong>
+      <img src="assets/img/trash-can.svg" title="delete" class="edit">
+    </a>
+  </div>
+
+    <h3 class="mt-3 text-primary">POSTS</h3>
+    <div  class="user-post my-2 p-4 pb-0" *ngFor="let post of posts; let i=index">
+      <div class="main-post">
+        <div class="cate">
+          <h4 class="title">{{post[0]}}<span class=" ms-1 author h6 text-primary">by {{post[1]}}</span>
+          </h4>
+          <div class="flex-column">
+            <span class="category text-dark"><em class="text-secondary">Category-name</em> : {{post[2]}}</span><br>
+            <span class="categoryName"><em class="text-secondary">Category-Description</em> : {{post[3]}}</span>
+          </div>
+        </div>
+        <p class="text">{{post[4]}}</p>
+        <a [routerLink]="['/post',post[0]]" (click)="view()">
+          <img src="assets/img/eye.svg" title="read" class="edit">
+        </a>
+
+        <a [routerLink]="['/post',post[0]]" (click)="view()">
+          <img src="assets/img/pen.svg"  title="edit" class="edit">
+        </a>
+          <img src="assets/img/trash-can.svg" title="delete" class="edit" (click)="deletePost(i)" appRemovePost>
+      </div>
+    </div>
+    <a class="post" (click)="newPost = true">
+      new post
+      <img src="assets/img/plus.svg" class="img-create">
+    </a>
+    <div id="add-post" class="mb-2" *ngIf="newPost">
+      <app-addPost (newPost)="status($event)"></app-addPost>
+    </div>
+</div>

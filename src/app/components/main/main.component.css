@@ -1,0 +1,25 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+  box-shadow: 1px 1px 3px black;
+  position: relative;
+  z-index: 10;
+  background-color: white;
+}
+span{
+  color: orangered;
+}
+h2{
+  color: black;
+}
+main{
+  width: 100vw;
+}
+
+@media screen and (max-width:500px) {
+   header{
+     display: flex;
+     flex-direction: column;
+   }
+}

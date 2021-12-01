@@ -1,0 +1,10 @@
+
+.edit{
+  width: 15px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+:read-write{
+  outline: 2px dotted rgb(64, 224, 64);
+}

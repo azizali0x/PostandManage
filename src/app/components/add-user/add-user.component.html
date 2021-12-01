@@ -1,0 +1,25 @@
+<div class="main-content p-5">
+  <img src="assets/img/x.svg" class="close float-end" (click)="close()">
+  <form class="p-2" novalidate (ngSubmit)="onSubmit()">
+    <!-- <p>{{userData.status}}</p> -->
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Full Name" required name="name" [(ngModel)]="name">
+
+    <label>Email</label>
+    <div *ngIf="regetEmail" class="alert alert-danger" >
+        {{email.value}} is currently available try new one
+    </div>
+    <div *ngIf="email.errors && email.dirty" class="alert alert-danger" >
+      please type a valid email
+  </div>
+    <input type="email"   class="form-control" email placeholder="example@example.com" [formControl]="email" name="email">
+
+    <label>Tel Number</label>
+    <div *ngIf="regetNumber" class="alert alert-danger" >
+      {{telNumber}} is currently available try new one
+  </div>
+    <input type="number" class="form-control" placeholder="0265066223" required pattern="" name="telNumber" [(ngModel)]="telNumber"><br>
+
+    <button type="submit" class="btn button w-100 text-white bg-primary" [disabled]="!email.valid" >Submit</button>
+  </form>
+</div>

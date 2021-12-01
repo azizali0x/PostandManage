@@ -1,0 +1,18 @@
+<div class="main-content">
+  <!-- loop through users (localStorage) using ngfor -->
+  <!-- use any avatar and specific name for the loop -->
+  <div id="users" *ngFor="let data of userData" class="m-1 users">
+    <!-- onclick gets user mail and use it in rendering the next page -->
+    <a (click)="getUserData(data)" [routerLink] ="['/user',data]"  class="text-black user text-decoration-none">
+      <img src="assets/img/user.svg" class="avatar">
+      <p>{{data}}</p>
+    </a>
+  </div>
+  <a class="ms-2 add-user p-2 mt-4" (click)="show = true">
+    add user
+    <img src="assets/img/plus.svg" class="create-post mt-1 ms-1">
+  </a>
+  <div id="add-user" *ngIf="show">
+    <app-add-user (show)= "status($event)"></app-add-user>
+  </div>
+</div>

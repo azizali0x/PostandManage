@@ -1,0 +1,25 @@
+.main-content{
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+
+
+}
+label{
+  color: black;
+  font-weight:800;
+  text-align: center;
+  text-transform:capitalize;
+}
+
+
+::placeholder{
+  text-align: center;
+  font-family: monospace;
+}
+
+.close{
+  width: 15px;
+  margin-top: -5vh;
+  margin-right: -2vw;
+}
